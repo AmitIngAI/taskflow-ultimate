@@ -10,8 +10,8 @@
     "lint": "eslint . --ext js,jsx"
   },
   "engines": {
-    "node": ">="20.x",
-    "npm": ">="9.x"
+    "node": "20.x",
+    "npm": "9.x"
   },
   "dependencies": {
     "@dnd-kit/core": "^6.1.0",
