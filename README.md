@@ -13,7 +13,7 @@
 [![TailwindCSS](https://img.shields.io/badge/Tailwind-3.3-06B6D4?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](LICENSE)
 
-**[Live Demo](#)** • **[Documentation](#)** • **[Report Bug](#)** • **[Request Feature](#)**
+**[Live Demo](#)**
 
 </div>
 
@@ -76,7 +76,7 @@ TaskFlow delivers:
 
 ### 🤖 AI-Powered Features
 
-``javascript
+javascript
 ✅ Task Breakdown - Auto-generate subtasks
 ✅ Time Estimation - AI predicts completion time
 ✅ Description Generator - Auto-write task descriptions
@@ -113,7 +113,7 @@ Team Heatmap - See activity patterns
 Custom Reports - Build your own
 
 
-🛠️ Tech Stack
+```🛠️ Tech Stack
 Backend Architecture:
 ├── Runtime & Framework
 │   ├── Node.js 18+
@@ -254,7 +254,7 @@ Frontend Architecture:
 │   │  (AI)    │   │  (Email) │   │  (Real-time)  │        │
 │   └──────────┘   └──────────┘   └───────────────┘        │
 └─────────────────────────────────────────────────────────────┘
-
+```
 🚀 Getting Started
 Prerequisites
 Software	Version	Required
@@ -264,27 +264,29 @@ Software	Version	Required
 🔴 Redis	7.0+	⚠️ Optional
 🔧 Git	Latest	✅ Yes
 
+
+
 📸 Screenshots
 🏠 Dashboard View
+<img width="1917" height="930" alt="Dashboard" src="https://github.com/user-attachments/assets/38c2ecb9-261f-40ce-8ac7-b923a4678fa2" />
 Customizable dashboard with drag & drop widgets
 
-📋 Kanban Board
-Drag & drop task management
 
-📊 Table View
-Spreadsheet-style task management
+
+📋 Analytics Dashboard
+<img width="1898" height="937" alt="Analyatical Dashboard" src="https://github.com/user-attachments/assets/ecbe85d1-39ee-43d5-bc06-8c2acda6484b" />
+Burndown charts, velocity, team heatmap
+
 
 📅 Calendar View
+<img width="1916" height="925" alt="Calender View" src="https://github.com/user-attachments/assets/a5faf49f-d873-4645-a35f-817428a24d8a" />
 Timeline-based task scheduling
 
-🎨 Theme Customization
-7+ preset themes + custom theme creator
 
-🔍 Advanced Search
-Fuzzy search with filters and history
 
-📈 Analytics Dashboard
-Burndown charts, velocity, team heatmap
+📈 Team Dashboard
+<img width="1910" height="927" alt="Team Dashboard" src="https://github.com/user-attachments/assets/77880712-4f41-4bb6-9746-b83fe784e127" />
+
 
 🔒 Security
 Implemented Security Measures
