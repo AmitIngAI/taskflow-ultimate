@@ -76,7 +76,7 @@ TaskFlow delivers:
 
 ### 🤖 AI-Powered Features
 
-```javascript
+``javascript
 ✅ Task Breakdown - Auto-generate subtasks
 ✅ Time Estimation - AI predicts completion time
 ✅ Description Generator - Auto-write task descriptions
