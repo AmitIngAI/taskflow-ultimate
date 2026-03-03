@@ -37,7 +37,7 @@
   .btn-primary {
     @apply btn bg-gradient-to-r from-primary-600 to-primary-700 text-white 
            hover:from-primary-700 hover:to-primary-800
-           shadow-lg shadow-primary-500/30 hover:shadow-primary-500/40
+           shadow-lg 
            focus:ring-primary-500;
   }
 
@@ -50,14 +50,14 @@
   .btn-danger {
     @apply btn bg-gradient-to-r from-red-600 to-red-700 text-white 
            hover:from-red-700 hover:to-red-800
-           shadow-lg shadow-red-500/30 hover:shadow-red-500/40
+           shadow-lg
            focus:ring-red-500;
   }
 
   .btn-success {
     @apply btn bg-gradient-to-r from-green-600 to-green-700 text-white 
            hover:from-green-700 hover:to-green-800
-           shadow-lg shadow-green-500/30 hover:shadow-green-500/40
+           shadow-lg
            focus:ring-green-500;
   }
 
@@ -109,7 +109,6 @@
 }
 
 @layer utilities {
-  /* Text truncate utilities */
   .line-clamp-1 {
     overflow: hidden;
     display: -webkit-box;
@@ -170,10 +169,10 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Focus ring offset for dark mode */
 .dark .focus\:ring-offset-2:focus {
   --tw-ring-offset-color: #0f172a;
 }
+
 /* Premium gradient backgrounds */
 .gradient-bg {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -202,14 +201,9 @@ html {
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Shimmer effect for loading */
 @keyframes shimmer {
-  0% {
-    background-position: -1000px 0;
-  }
-  100% {
-    background-position: 1000px 0;
-  }
+  0% { background-position: -1000px 0; }
+  100% { background-position: 1000px 0; }
 }
 
 .shimmer {
