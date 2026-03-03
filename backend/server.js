@@ -33,27 +33,10 @@ connectDB();
 const app = express();
 const httpServer = createServer(app);
 
-// 🔧 IMPORTANT: Enable trust proxy for Render/production
+// 🔧 IMPORTANT: Enable trust proxy for Render
 if (process.env.NODE_ENV === 'production') {
   app.set('trust proxy', 1);
-
-// 🔥 IMPORTANT: CORS for production
-const allowedOrigins = [
-  process.env.CLIENT_URL,
-  'http://localhost:3000',
-  'http://localhost:5173',
-];
-
-app.use(cors({
-  origin: function (origin, callback) {
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
-  credentials: true,
-}));
+}
 
 // 🔒 Security Middleware (FIRST)
 app.use(helmetConfig);
@@ -76,14 +59,16 @@ const io = new Server(httpServer, {
   cors: corsOptions,
 });
 
+// Initialize custom socket service
 initializeSocket(io);
 
+// Make io accessible in routes
 app.use((req, res, next) => {
   req.io = io;
   next();
 });
 
-// Health check
+// Health check route
 app.get('/api/health', (req, res) => {
   res.json({ 
     status: 'ok', 
@@ -120,6 +105,15 @@ io.on('connection', (socket) => {
     console.log(`User ${socket.id} joined project ${projectId}`);
   });
 
+  socket.on('join-room', (roomId) => {
+    socket.join(roomId);
+    console.log(`User ${socket.id} joined room ${roomId}`);
+  });
+
+  socket.on('task-updated', (data) => {
+    socket.to(data.projectId).emit('task-update', data);
+  });
+
   socket.on('disconnect', () => {
     console.log('❌ User disconnected:', socket.id);
   });
@@ -138,6 +132,7 @@ httpServer.listen(PORT, () => {
   `);
 });
 
+// Handle unhandled promise rejections
 process.on('unhandledRejection', (err) => {
   console.error('❌ Unhandled Rejection:', err);
 });
