@@ -254,7 +254,7 @@ Frontend Architecture:
 │   │  (AI)    │   │  (Email) │   │  (Real-time)  │        │
 │   └──────────┘   └──────────┘   └───────────────┘        │
 └─────────────────────────────────────────────────────────────┘
-```
+
 🚀 Getting Started
 Prerequisites
 Software	Version	Required
@@ -263,7 +263,7 @@ Software	Version	Required
 🍃 MongoDB	6.0+	✅ Yes
 🔴 Redis	7.0+	⚠️ Optional
 🔧 Git	Latest	✅ Yes
-
+```
 
 
 📸 Screenshots
@@ -287,7 +287,7 @@ Timeline-based task scheduling
 📈 Team Dashboard
 <img width="1910" height="927" alt="Team Dashboard" src="https://github.com/user-attachments/assets/77880712-4f41-4bb6-9746-b83fe784e127" />
 
-
+```
 🔒 Security
 Implemented Security Measures
 Layer	Implementation
@@ -310,7 +310,7 @@ Compression	Gzip/Brotli compression
 Lazy Loading	React virtualization for large lists
 Debouncing	Search and API calls
 Memoization	React.memo, useMemo, useCallback
-
+```
 🤝 Contributing
 Contributions are what make the open-source community amazing! Any contributions you make are greatly appreciated.
 
