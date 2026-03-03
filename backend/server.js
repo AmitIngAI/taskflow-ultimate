@@ -33,6 +33,24 @@ connectDB();
 const app = express();
 const httpServer = createServer(app);
 
+// 🔥 IMPORTANT: CORS for production
+const allowedOrigins = [
+  process.env.CLIENT_URL,
+  'http://localhost:3000',
+  'http://localhost:5173',
+];
+
+app.use(cors({
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true,
+}));
+
 // 🔒 Security Middleware (FIRST)
 app.use(helmetConfig);
 app.use(cors(corsOptions));
