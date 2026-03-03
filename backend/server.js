@@ -33,6 +33,10 @@ connectDB();
 const app = express();
 const httpServer = createServer(app);
 
+// 🔧 IMPORTANT: Enable trust proxy for Render/production
+if (process.env.NODE_ENV === 'production') {
+  app.set('trust proxy', 1);
+
 // 🔥 IMPORTANT: CORS for production
 const allowedOrigins = [
   process.env.CLIENT_URL,

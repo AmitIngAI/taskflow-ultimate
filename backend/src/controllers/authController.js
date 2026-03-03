@@ -20,7 +20,6 @@ export const register = async (req, res) => {
       });
     }
 
-    // ✅ NEW CHECK (as requested)
     const existingUser = await User.findOne({ email: email.toLowerCase() });
     if (existingUser) {
       return res.status(409).json({
@@ -38,9 +37,15 @@ export const register = async (req, res) => {
 
     console.log('✅ User created:', user.email);
 
-    await emailService.sendWelcomeEmail(user);
-
     const token = generateToken(user._id);
+
+    // Send welcome email (don't crash if fails)
+    try {
+      await emailService.sendWelcomeEmail(user);
+    } catch (emailError) {
+      console.log('⚠️ Welcome email failed:', emailError.message);
+      // Continue anyway - user is registered
+    }
 
     res.status(201).json({
       success: true,
@@ -81,7 +86,6 @@ export const login = async (req, res) => {
       });
     }
 
-    // ✅ NEW CHECK (as requested)
     const user = await User.findOne({ email: email.toLowerCase() })
       .select('+password +twoFactorEnabled +twoFactorSecret');
 
@@ -230,6 +234,8 @@ export const uploadUserAvatar = async (req, res) => {
   }
 };
 
+// Rest of file (changePassword + 2FA functions) remains exactly unchanged
+
 // @desc    Change password
 // @route   POST /api/auth/change-password
 // @access  Private
@@ -278,9 +284,7 @@ export const changePassword = async (req, res) => {
   }
 };
 
-// =================== 2FA Routes ===================
-
-// (2FA code unchanged below)
+// 2FA functions unchanged below
 
 export const generate2FA = async (req, res) => {
   try {
